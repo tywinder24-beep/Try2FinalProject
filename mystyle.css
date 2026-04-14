@@ -1,0 +1,47 @@
+/* Custom Stylesheet for Wake Surfing Scratch Page */
+
+body {
+    background-color: #e0f7fa; /* Light water blue - Custom Background Requirement */
+    color: #004d40;           /* Deep teal - Font Color Requirement */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font Family Requirement */
+    margin: 0;
+    padding: 0;
+}
+
+/* Div Block 1: Header - Positioning Requirement */
+.header-box {
+    background-color: #00838f;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-bottom: 5px solid #00acc1;
+}
+
+/* Div Block 2: Main Content Container - Positioning Requirement */
+.main-content {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Div Block 3: Video/Graph Section - Positioning Requirement */
+.media-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #b2ebf2;
+    border-radius: 10px;
+}
+
+.nav-link {
+    color: #00838f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
