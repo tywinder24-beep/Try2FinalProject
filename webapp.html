@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Admin App | Goal Simulator</title>
+    <link rel="stylesheet" href="index_style.css">
+    <style>
+        .app-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 8px solid #3498db;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Keeps padding from breaking width */
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #3498db;
+        }
+        #result-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f4f7f6;
+            border-radius: 8px;
+            display: none; /* Hidden until calculated */
+        }
+        .metric-val {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-container">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="scratch.html" class="nav-link">Scratch Page</a>
+    </nav>
+
+    <div class="app-container">
+        <h2>Facility Revenue Simulator</h2>
+        <p class="text-muted">Analyze projected revenue based on patient volume and operational efficiency.</p>
+        <hr>
+
+        <div class="input-group">
+            <label for="patients">Monthly Patient Volume:</label>
+            <input type="number" id="patients" placeholder="e.g. 500">
+        </div>
+
+        <div class="input-group">
+            <label for="revenue">Avg Revenue per Visit ($):</label>
+            <input type="number" id="revenue" placeholder="e.g. 150">
+        </div>
+
+        <div class="input-group">
+            <label for="efficiency">Operational Efficiency (%):</label>
+            <input type="number" id="efficiency" placeholder="e.g. 85" max="100">
+        </div>
+
+        <button onclick="calculateROI()">Run Simulation</button>
+
+        <div id="result-box">
+            <h4>Simulation Results:</h4>
+            <p>Potential Gross Revenue: <span id="gross-output" class="metric-val"></span></p>
+            <p>Efficiency-Adjusted Revenue: <span id="net-output" class="metric-val"></span></p>
+            <p id="feedback-msg" style="font-style: italic;"></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateROI() {
+            // 1. Get the values from the inputs
+            const patients = document.getElementById('patients').value;
+            const revenue = document.getElementById('revenue').value;
+            const efficiency = document.getElementById('efficiency').value / 100;
+
+            // 2. Validate inputs
+            if (patients <= 0 || revenue <= 0 || efficiency <= 0) {
+                alert("Please enter positive values for all fields.");
+                return;
+            }
+
+            // 3. Perform Calculations
+            const gross = patients * revenue;
+            const net = gross * efficiency;
+
+            // 4. Display the results
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('gross-output').innerText = '$' + gross.toLocaleString();
+            document.getElementById('net-output').innerText = '$' + net.toLocaleString();
+
+            // 5. Creative Logic: Conditional Feedback
+            let msg = "";
+            if (efficiency < 0.7) {
+                msg = "Warning: Low efficiency detected. Recommend operational audit.";
+            } else if (efficiency >= 0.9) {
+                msg = "Excellent! Facility is performing at peak capacity.";
+            } else {
+                msg = "Steady performance. Room for incremental growth.";
+            }
+            document.getElementById('feedback-msg').innerText = msg;
+        }
+    </script>
+
+    <footer style="text-align: center; padding: 20px; margin-top: 50px;">
+        <p>&copy; 2026 Ty Winder | Collaborative AI Project</p>
+    </footer>
+
+</body>
+</html>
