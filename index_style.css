@@ -1,0 +1,85 @@
+/* Professional Landing Page Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean, modern fonts */
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Header & Navigation */
+.nav-container {
+    background-color: #2c3e50; /* Dark slate blue */
+    padding: 15px 0;
+    text-align: center;
+}
+
+.nav-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    color: #3498db; /* Professional bright blue */
+}
+
+/* Hero Section */
+.hero {
+    background-color: #f4f7f6;
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #2c3e50;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Main Content Area */
+.content-wrapper {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Soft, professional shadow */
+}
+
+.profile-text h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+}
+
+.btn-pro {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.btn-pro:hover {
+    background-color: #2980b9;
+}
